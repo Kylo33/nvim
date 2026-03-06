@@ -15,7 +15,7 @@ vim.o.signcolumn = 'yes'
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.o.winborder = 'none'
+vim.o.winborder = 'single'
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
@@ -29,6 +29,10 @@ vim.o.list = true
 
 vim.o.pumheight = 7
 vim.o.pummaxwidth = 80
+
+vim.diagnostic.config({
+    virtual_text = true,
+})
 
 -- Unused: Native LSP autocomplete config
 -- vim.o.autocomplete = true
@@ -87,17 +91,18 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.pack.add({
     { src = 'https://github.com/chomosuke/typst-preview.nvim' },
-    { src = 'https://github.com/folke/tokyonight.nvim' },
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = 'https://github.com/nvim-mini/mini.jump2d' },
+    { src = 'https://github.com/nvim-mini/mini.pairs' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/stevearc/oil.nvim' },
+    { src = 'https://github.com/vague-theme/vague.nvim' },
 })
 
-vim.cmd.colorscheme('tokyonight-night')
+vim.cmd.colorscheme('vague')
 
 -- mini.jump2d
 MiniJump2d = require('mini.jump2d')
@@ -111,6 +116,9 @@ MiniJump2d.setup({
 
 -- mason.nvim
 require('mason').setup()
+
+-- mini.pairs
+require('mini.pairs').setup()
 
 -- mini.pick
 require('mini.pick').setup()
