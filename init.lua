@@ -86,17 +86,28 @@ vim.api.nvim_create_autocmd("FileType", {
 -- [[ Plugins ]]
 
 vim.pack.add({
-    { src = 'https://github.com/vague-theme/vague.nvim' },
-    { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = 'https://github.com/chomosuke/typst-preview.nvim' },
+    { src = 'https://github.com/folke/tokyonight.nvim' },
+    { src = 'https://github.com/mason-org/mason.nvim' },
+    { src = 'https://github.com/neovim/nvim-lspconfig' },
+    { src = 'https://github.com/nvim-mini/mini.jump2d' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
-    { src = 'https://github.com/stevearc/oil.nvim' },
-    { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/saghen/blink.cmp' },
+    { src = 'https://github.com/stevearc/oil.nvim' },
 })
 
-vim.cmd.colorscheme('vague')
+vim.cmd.colorscheme('tokyonight-night')
+
+-- mini.jump2d
+MiniJump2d = require('mini.jump2d')
+MiniJump2d.setup({
+    spotter = MiniJump2d.builtin_opts.word_start.spotter,
+    view = {
+        dim = true,
+        n_steps_ahead = 5,
+    }
+})
 
 -- mason.nvim
 require('mason').setup()
@@ -111,16 +122,18 @@ vim.keymap.set({ 'n' }, '<leader>b', ':Pick buffers<CR>')
 -- mini.surround
 require('mini.surround').setup()
 
--- oil.nvim
-require('oil').setup()
-vim.keymap.set({ 'n' }, '<leader>e', ':Oil<CR>')
-
 -- blink.cmp
 require('blink.cmp').setup({
     signature = {
         enabled = true
     }
 })
+
+-- oil.nvim
+require('oil').setup()
+vim.keymap.set({ 'n' }, '<leader>e', ':Oil<CR>')
+
+
 
 -- [[ LSP ]]
 

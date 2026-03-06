@@ -8,6 +8,10 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.jump2d": {
+      "rev": "5a37ec9d1faab7c90e8a85bba83d97ea359b6d84",
+      "src": "https://github.com/nvim-mini/mini.jump2d"
+    },
     "mini.pick": {
       "rev": "8521fe21df86e08d9e4b3c3f3a7d50e47954e1af",
       "src": "https://github.com/nvim-mini/mini.pick"
@@ -24,13 +28,13 @@
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "tokyonight.nvim": {
+      "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
+      "src": "https://github.com/folke/tokyonight.nvim"
+    },
     "typst-preview.nvim": {
       "rev": "bf5d5eaf23bbfcca9f98a24ed29bd084abf89bf2",
       "src": "https://github.com/chomosuke/typst-preview.nvim"
-    },
-    "vague.nvim": {
-      "rev": "2baf167930cf2fa9c6aa7de08a4522e9fb527b33",
-      "src": "https://github.com/vague-theme/vague.nvim"
     }
   }
 }
