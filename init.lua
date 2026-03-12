@@ -15,7 +15,7 @@ vim.o.signcolumn = 'yes'
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.o.winborder = 'none'
+vim.o.winborder = 'single'
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
@@ -45,10 +45,14 @@ vim.keymap.set({ 'n' }, '<A-h>', '<C-w>h')
 vim.keymap.set({ 'n' }, '<A-j>', '<C-w>j')
 vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
 vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
--- Source the current file with <leader>o
+
 vim.keymap.set({ 'n' }, '<leader>o', ':update<CR>:source<CR>')
 vim.keymap.set({ 'n' }, '<leader>w', ':write<CR>')
 vim.keymap.set({ 'n' }, '<leader>q', ':quit<CR>')
+vim.keymap.set({ 'n' }, '<leader>tp', ':TypstPreview<CR>')
+vim.keymap.set({ 'n' }, '<leader>te', ':LspTinymistExportPdf<CR>')
+
+
 
 -- [[ Basic Auto commands ]].
 
@@ -88,11 +92,11 @@ vim.pack.add({
     { src = 'https://github.com/chomosuke/typst-preview.nvim' },
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
+    { src = 'https://github.com/nvim-mini/mini.files' },
     { src = 'https://github.com/nvim-mini/mini.pairs' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
     { src = 'https://github.com/saghen/blink.cmp' },
-    { src = 'https://github.com/stevearc/oil.nvim' },
     { src = 'https://github.com/vague-theme/vague.nvim' },
 })
 
@@ -104,6 +108,10 @@ vim.keymap.set({ 'n' }, '<leader>J', '<Plug>(leap-from-window)')
 
 -- mason.nvim
 require('mason').setup()
+
+-- mini.files
+require('mini.files').setup()
+vim.keymap.set({ 'n' }, '<leader>e', MiniFiles.open)
 
 -- mini.pairs
 require('mini.pairs').setup()
@@ -124,11 +132,6 @@ require('blink.cmp').setup({
         enabled = true
     }
 })
-
--- oil.nvim
-require('oil').setup()
-vim.keymap.set({ 'n' }, '<leader>e', ':Oil<CR>')
-
 
 
 -- [[ LSP ]]

@@ -12,6 +12,10 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.files": {
+      "rev": "57eb96a828f80efb8095a611e3aafcfa43548f8b",
+      "src": "https://github.com/nvim-mini/mini.files"
+    },
     "mini.jump2d": {
       "rev": "5a37ec9d1faab7c90e8a85bba83d97ea359b6d84",
       "src": "https://github.com/nvim-mini/mini.jump2d"
