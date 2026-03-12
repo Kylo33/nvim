@@ -15,7 +15,7 @@ vim.o.signcolumn = 'yes'
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.o.winborder = 'single'
+vim.o.winborder = 'none'
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
@@ -34,11 +34,6 @@ vim.diagnostic.config({
     virtual_text = true,
 })
 
--- Unused: Native LSP autocomplete config
--- vim.o.autocomplete = true
--- vim.o.completeopt = "fuzzy,menuone,noselect,popup"
--- vim.o.complete = "o,.,w,b,u"
-
 -- [[ Set up keymaps ]] See `:h vim.keymap.set()`, `:h mapping`, `:h keycodes`
 
 -- Map <A-j>, <A-k>, <A-h>, <A-l> to navigate between windows in any modes
@@ -50,7 +45,6 @@ vim.keymap.set({ 'n' }, '<A-h>', '<C-w>h')
 vim.keymap.set({ 'n' }, '<A-j>', '<C-w>j')
 vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
 vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
-
 -- Source the current file with <leader>o
 vim.keymap.set({ 'n' }, '<leader>o', ':update<CR>:source<CR>')
 vim.keymap.set({ 'n' }, '<leader>w', ':write<CR>')
@@ -90,10 +84,10 @@ vim.api.nvim_create_autocmd("FileType", {
 -- [[ Plugins ]]
 
 vim.pack.add({
+    { src = 'https://codeberg.org/andyg/leap.nvim' },
     { src = 'https://github.com/chomosuke/typst-preview.nvim' },
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = 'https://github.com/nvim-mini/mini.jump2d' },
     { src = 'https://github.com/nvim-mini/mini.pairs' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
@@ -104,15 +98,9 @@ vim.pack.add({
 
 vim.cmd.colorscheme('vague')
 
--- mini.jump2d
-MiniJump2d = require('mini.jump2d')
-MiniJump2d.setup({
-    spotter = MiniJump2d.builtin_opts.word_start.spotter,
-    view = {
-        dim = true,
-        n_steps_ahead = 5,
-    }
-})
+-- leap.nvim
+vim.keymap.set({ 'n', 'x', 'o' }, '<leader>j', '<Plug>(leap)')
+vim.keymap.set({ 'n' }, '<leader>J', '<Plug>(leap-from-window)')
 
 -- mason.nvim
 require('mason').setup()
@@ -148,9 +136,15 @@ vim.keymap.set({ 'n' }, '<leader>e', ':Oil<CR>')
 vim.lsp.enable({
     'lua_ls',
     'gopls',
-    'svelte-language-server',
+    'svelte',
     'tinymist',
     'clangd',
+    'html',
+    'emmet_ls',
+    'ts_ls',
+    'tailwindcss',
+    'ruff',
+    'basedpyright',
 })
 
 vim.lsp.config("lua_ls", {
