@@ -24,8 +24,8 @@ vim.o.smartcase = true
 -- Highlight the line where the cursor is on
 vim.o.scrolloff = 10
 
--- Show <tab> and trailing spaces
-vim.o.list = true
+-- Don't show <tab> and trailing spaces
+vim.o.list = false
 
 vim.o.pumheight = 7
 vim.o.pummaxwidth = 80
@@ -51,6 +51,8 @@ vim.keymap.set({ 'n' }, '<leader>w', ':write<CR>')
 vim.keymap.set({ 'n' }, '<leader>q', ':quit<CR>')
 vim.keymap.set({ 'n' }, '<leader>tp', ':TypstPreview<CR>')
 vim.keymap.set({ 'n' }, '<leader>te', ':LspTinymistExportPdf<CR>')
+vim.keymap.set({ 'n' }, '<leader>lr', ':lsp restart<CR>')
+vim.keymap.set({ 'n' }, '<leader>lh', ':checkhealth vim.lsp<CR>')
 
 
 
@@ -92,15 +94,15 @@ vim.pack.add({
     { src = 'https://github.com/chomosuke/typst-preview.nvim' },
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
+    { src = 'https://github.com/nvim-mini/mini.ai' },
     { src = 'https://github.com/nvim-mini/mini.files' },
     { src = 'https://github.com/nvim-mini/mini.pairs' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
     { src = 'https://github.com/saghen/blink.cmp' },
-    { src = 'https://github.com/vague-theme/vague.nvim' },
 })
 
-vim.cmd.colorscheme('vague')
+vim.cmd.colorscheme('catppuccin')
 
 -- leap.nvim
 vim.keymap.set({ 'n', 'x', 'o' }, '<leader>j', '<Plug>(leap)')
@@ -108,6 +110,9 @@ vim.keymap.set({ 'n' }, '<leader>J', '<Plug>(leap-from-window)')
 
 -- mason.nvim
 require('mason').setup()
+
+-- mini.ai
+require('mini.ai').setup()
 
 -- mini.files
 require('mini.files').setup()
@@ -147,7 +152,9 @@ vim.lsp.enable({
     'ts_ls',
     'tailwindcss',
     'ruff',
-    'basedpyright',
+    'ty',
+    'rust_analyzer',
+    'dotls',
 })
 
 vim.lsp.config("lua_ls", {

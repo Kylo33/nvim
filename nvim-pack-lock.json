@@ -8,9 +8,21 @@
       "rev": "b81866399072af08195ebfbcfea9d3dcab970972",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
+    "markdown-preview.nvim": {
+      "rev": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee",
+      "src": "https://github.com/iamcco/markdown-preview.nvim"
+    },
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mellow.nvim": {
+      "rev": "5cd188489bcc7eb512f0a30581ad972070f8e5cd",
+      "src": "https://github.com/mellow-theme/mellow.nvim"
+    },
+    "mini.ai": {
+      "rev": "4b0a6207341d895b6cfe9bcb1e4d3e8607bfe4f4",
+      "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.files": {
       "rev": "57eb96a828f80efb8095a611e3aafcfa43548f8b",
@@ -40,6 +52,10 @@
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "oldworld.nvim": {
+      "rev": "db072a0bd2c90035fc3a57a73014cb54d3902f1f",
+      "src": "https://github.com/dgox16/oldworld.nvim"
+    },
     "tokyonight.nvim": {
       "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
       "src": "https://github.com/folke/tokyonight.nvim"
@@ -51,6 +67,10 @@
     "vague.nvim": {
       "rev": "2baf167930cf2fa9c6aa7de08a4522e9fb527b33",
       "src": "https://github.com/vague-theme/vague.nvim"
+    },
+    "vim-be-good": {
+      "rev": "0ae3de14eb8efc6effe7704b5e46495e91931cc5",
+      "src": "https://github.com/ThePrimeagen/vim-be-good"
     }
   }
 }
