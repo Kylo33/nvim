@@ -95,11 +95,11 @@ vim.pack.add({
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = 'https://github.com/nvim-mini/mini.ai' },
-    { src = 'https://github.com/nvim-mini/mini.files' },
     { src = 'https://github.com/nvim-mini/mini.pairs' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
     { src = 'https://github.com/saghen/blink.cmp' },
+    { src = 'https://github.com/stevearc/oil.nvim' },
 })
 
 vim.cmd.colorscheme('catppuccin')
@@ -114,9 +114,9 @@ require('mason').setup()
 -- mini.ai
 require('mini.ai').setup()
 
--- mini.files
-require('mini.files').setup()
-vim.keymap.set({ 'n' }, '<leader>e', MiniFiles.open)
+-- oil.nvim
+require('oil').setup()
+vim.keymap.set({ 'n' }, '<leader>e', "<CMD>Oil<CR>")
 
 -- mini.pairs
 require('mini.pairs').setup()
@@ -154,7 +154,7 @@ vim.lsp.enable({
     'ruff',
     'ty',
     'rust_analyzer',
-    'dotls',
+    'astro',
 })
 
 vim.lsp.config("lua_ls", {
