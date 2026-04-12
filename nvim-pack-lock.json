@@ -4,6 +4,10 @@
       "rev": "e9556f9b981f395e22a6bfd69fd5f3008a2a6cd9",
       "src": "https://github.com/saghen/blink.cmp"
     },
+    "everforest-nvim": {
+      "rev": "cf08aa67fc96946a01177ae483b7631733b4b5e6",
+      "src": "https://github.com/neanias/everforest-nvim"
+    },
     "leap.nvim": {
       "rev": "b81866399072af08195ebfbcfea9d3dcab970972",
       "src": "https://codeberg.org/andyg/leap.nvim"
@@ -23,6 +27,10 @@
     "mini.ai": {
       "rev": "4b0a6207341d895b6cfe9bcb1e4d3e8607bfe4f4",
       "src": "https://github.com/nvim-mini/mini.ai"
+    },
+    "mini.extra": {
+      "rev": "bc4e872500fd6d2ce252604e0ffa100f64f02280",
+      "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.files": {
       "rev": "57eb96a828f80efb8095a611e3aafcfa43548f8b",
@@ -47,6 +55,10 @@
     "neo-tree.nvim": {
       "rev": "b48ed11632c8208ffb27dab6acfbf16e4f9e3376",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
+    },
+    "neovim": {
+      "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
+      "src": "https://github.com/rose-pine/neovim"
     },
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",

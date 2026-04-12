@@ -49,12 +49,10 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 vim.keymap.set({ 'n' }, '<leader>o', ':update<CR>:source<CR>')
 vim.keymap.set({ 'n' }, '<leader>w', ':write<CR>')
 vim.keymap.set({ 'n' }, '<leader>q', ':quit<CR>')
-vim.keymap.set({ 'n' }, '<leader>tp', ':TypstPreview<CR>')
-vim.keymap.set({ 'n' }, '<leader>te', ':LspTinymistExportPdf<CR>')
 vim.keymap.set({ 'n' }, '<leader>lr', ':lsp restart<CR>')
 vim.keymap.set({ 'n' }, '<leader>lh', ':checkhealth vim.lsp<CR>')
 
-
+vim.keymap.set({ 'n' }, '<leader>n', ':next<CR>')
 
 -- [[ Basic Auto commands ]].
 
@@ -95,18 +93,24 @@ vim.pack.add({
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = 'https://github.com/nvim-mini/mini.ai' },
+    { src = 'https://github.com/nvim-mini/mini.extra' },
     { src = 'https://github.com/nvim-mini/mini.pairs' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
+    { src = 'https://github.com/rose-pine/neovim' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/stevearc/oil.nvim' },
 })
 
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('rose-pine')
 
 -- leap.nvim
 vim.keymap.set({ 'n', 'x', 'o' }, '<leader>j', '<Plug>(leap)')
 vim.keymap.set({ 'n' }, '<leader>J', '<Plug>(leap-from-window)')
+
+-- typst-preview.nvim
+vim.keymap.set({ 'n' }, '<leader>tp', ':TypstPreview<CR>')
+vim.keymap.set({ 'n' }, '<leader>te', ':LspTinymistExportPdf<CR>')
 
 -- mason.nvim
 require('mason').setup()
@@ -114,9 +118,10 @@ require('mason').setup()
 -- mini.ai
 require('mini.ai').setup()
 
--- oil.nvim
-require('oil').setup()
-vim.keymap.set({ 'n' }, '<leader>e', "<CMD>Oil<CR>")
+-- mini.extra
+require('mini.extra').setup()
+vim.keymap.set({ 'n' }, '<leader>ld', ":Pick lsp scope='document_symbol'<CR>")
+vim.keymap.set({ 'n' }, '<leader>lw', ":Pick lsp scope='workspace_symbol_live'<CR>")
 
 -- mini.pairs
 require('mini.pairs').setup()
@@ -138,6 +143,10 @@ require('blink.cmp').setup({
     }
 })
 
+-- oil.nvim
+require('oil').setup()
+vim.keymap.set({ 'n' }, '<leader>e', "<CMD>Oil<CR>")
+
 
 -- [[ LSP ]]
 
@@ -151,8 +160,7 @@ vim.lsp.enable({
     'emmet_ls',
     'ts_ls',
     'tailwindcss',
-    'ruff',
-    'ty',
+    'basedpyright',
     'rust_analyzer',
     'astro',
 })
