@@ -88,7 +88,6 @@ vim.api.nvim_create_autocmd("FileType", {
 -- [[ Plugins ]]
 
 vim.pack.add({
-    { src = 'https://codeberg.org/andyg/leap.nvim' },
     { src = 'https://github.com/chomosuke/typst-preview.nvim' },
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -100,13 +99,10 @@ vim.pack.add({
     { src = 'https://github.com/rose-pine/neovim' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/stevearc/oil.nvim' },
+    { src = 'https://github.com/nvim-lualine/lualine.nvim' },
 })
 
 vim.cmd.colorscheme('rose-pine')
-
--- leap.nvim
-vim.keymap.set({ 'n', 'x', 'o' }, '<leader>j', '<Plug>(leap)')
-vim.keymap.set({ 'n' }, '<leader>J', '<Plug>(leap-from-window)')
 
 -- typst-preview.nvim
 vim.keymap.set({ 'n' }, '<leader>tp', ':TypstPreview<CR>')
@@ -147,6 +143,18 @@ require('blink.cmp').setup({
 require('oil').setup()
 vim.keymap.set({ 'n' }, '<leader>e', "<CMD>Oil<CR>")
 
+-- lualine
+require('lualine').setup({
+    options = { section_separators = '', component_separators = '' },
+    sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { { 'filename', path = 1 } },
+        lualine_c = { 'searchcount', 'selectioncount' },
+        lualine_x = { 'diff' },
+        lualine_y = { { 'branch', icons_enabled = false } },
+        lualine_z = { 'location' }
+    },
+})
 
 -- [[ LSP ]]
 
