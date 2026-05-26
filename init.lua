@@ -90,19 +90,20 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.pack.add({
     { src = 'https://github.com/chomosuke/typst-preview.nvim' },
     { src = 'https://github.com/mason-org/mason.nvim' },
+    { src = 'https://github.com/mellow-theme/mellow.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
+    { src = 'https://github.com/nvim-lualine/lualine.nvim' },
     { src = 'https://github.com/nvim-mini/mini.ai' },
     { src = 'https://github.com/nvim-mini/mini.extra' },
     { src = 'https://github.com/nvim-mini/mini.pairs' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
+    { src = 'https://github.com/nvim-mini/mini.snippets' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
-    { src = 'https://github.com/rose-pine/neovim' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/stevearc/oil.nvim' },
-    { src = 'https://github.com/nvim-lualine/lualine.nvim' },
 })
 
-vim.cmd.colorscheme('rose-pine')
+vim.cmd.colorscheme('mellow')
 
 -- typst-preview.nvim
 vim.keymap.set({ 'n' }, '<leader>tp', ':TypstPreview<CR>')
@@ -129,6 +130,14 @@ vim.keymap.set({ 'n' }, '<leader>h', ':Pick help<CR>')
 vim.keymap.set({ 'n' }, '<leader>/', ':Pick grep_live<CR>')
 vim.keymap.set({ 'n' }, '<leader>b', ':Pick buffers<CR>')
 
+-- mini.snippets
+local gen_loader = require('mini.snippets').gen_loader
+require('mini.snippets').setup({
+    snippets = {
+        gen_loader.from_lang(),
+    },
+})
+
 -- mini.surround
 require('mini.surround').setup()
 
@@ -143,19 +152,6 @@ require('blink.cmp').setup({
 require('oil').setup()
 vim.keymap.set({ 'n' }, '<leader>e', "<CMD>Oil<CR>")
 
--- lualine
-require('lualine').setup({
-    options = { section_separators = '', component_separators = '' },
-    sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { { 'filename', path = 1 } },
-        lualine_c = { 'searchcount', 'selectioncount' },
-        lualine_x = { 'diff' },
-        lualine_y = { { 'branch', icons_enabled = false } },
-        lualine_z = { 'location' }
-    },
-})
-
 -- [[ LSP ]]
 
 vim.lsp.enable({
@@ -168,9 +164,13 @@ vim.lsp.enable({
     'emmet_ls',
     'ts_ls',
     'tailwindcss',
-    'basedpyright',
+    'ruff',
+    'ty',
     'rust_analyzer',
     'astro',
+    'zls',
+    'gleam',
+    'terraformls',
 })
 
 vim.lsp.config("lua_ls", {
