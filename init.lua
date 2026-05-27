@@ -97,7 +97,6 @@ vim.pack.add({
     { src = 'https://github.com/nvim-mini/mini.extra' },
     { src = 'https://github.com/nvim-mini/mini.pairs' },
     { src = 'https://github.com/nvim-mini/mini.pick' },
-    { src = 'https://github.com/nvim-mini/mini.snippets' },
     { src = 'https://github.com/nvim-mini/mini.surround' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/stevearc/oil.nvim' },
@@ -129,14 +128,6 @@ vim.keymap.set({ 'n' }, '<leader>f', ':Pick files<CR>')
 vim.keymap.set({ 'n' }, '<leader>h', ':Pick help<CR>')
 vim.keymap.set({ 'n' }, '<leader>/', ':Pick grep_live<CR>')
 vim.keymap.set({ 'n' }, '<leader>b', ':Pick buffers<CR>')
-
--- mini.snippets
-local gen_loader = require('mini.snippets').gen_loader
-require('mini.snippets').setup({
-    snippets = {
-        gen_loader.from_lang(),
-    },
-})
 
 -- mini.surround
 require('mini.surround').setup()
